@@ -5,7 +5,6 @@ import 'package:arcade_motoru/pinbol.dart';
 import 'package:flutter/material.dart';
 import 'package:studio_core/app/arcade_stage.dart';
 import 'package:studio_core/app/game_api.dart';
-import 'package:studio_core/core/game_rules.dart';
 
 const pinbolId = 'oyun-pinbol';
 
@@ -88,7 +87,7 @@ final pinbolConfig = GameConfig(
   rules: pinbolRules,
   buildPlay: (ctx) => ArcadeStage(
     ctx: ctx,
-    create: () => pinbolRules.createSim((ctx.generated as GeneratedLevel).puzzle),
+    create: () => pinbolRules.createSim(ctx.generated.puzzle),
     paint: (c, s, p, t) {
       arcadeLang = ctx.lang;
       paintPinball(c, s, p, t);
